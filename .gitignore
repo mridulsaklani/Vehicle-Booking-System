@@ -17,6 +17,7 @@ lib/
 lib64/
 parts/
 sdist/
+sdit/
 var/
 *.egg-info/
 .installed.cfg
@@ -29,6 +30,7 @@ ENV/
 env/
 env.bak/
 **/.env
+
 venv.bak/
 
 
