@@ -16,7 +16,7 @@ class VEHICLE_TYPE(str, Enum):
     TWO_WHEELER = "two_wheeler"
     FOUR_WHEELER = "four_wheeler"
 
-class TwoWheelerBrand(str, Enum):
+class VEHICLE_BRAND(str, Enum):
     HERO = "Hero"
     BAJAJ = "Bajaj"
     TVS = "TVS"
@@ -26,8 +26,6 @@ class TwoWheelerBrand(str, Enum):
     SUZUKI = "Suzuki"
     KAWASAKI = "Kawasaki"
     APRILIA = "Aprilia"
-
-class FourWheelerBrand(str, Enum):
     MARUTI_SUZUKI = "Maruti Suzuki"
     HYUNDAI = "Hyundai"
     TATA = "Tata"
