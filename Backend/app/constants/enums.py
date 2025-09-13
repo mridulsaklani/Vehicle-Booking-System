@@ -1,9 +1,9 @@
 from enum import Enum
 
-
 class USER_ROLE(str, Enum):
     USER="user"
     DRIVER="driver"
+    VENDOR="vendor"
     ADMIN="admin"
 
 class USER_STATUS(str, Enum):
