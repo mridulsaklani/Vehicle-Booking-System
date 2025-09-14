@@ -30,7 +30,6 @@ class VEHICLE_BRAND(str, Enum):
     HYUNDAI = "Hyundai"
     TATA = "Tata"
     MAHINDRA = "Mahindra"
-    HONDA = "Honda"
     TOYOTA = "Toyota"
     FORD = "Ford"
     CHEVROLET = "Chevrolet"
@@ -355,3 +354,13 @@ class IndianDistrict(Enum):
     KARAIKAL = "Karaikal"
     MAHE = "Mahe"
     YANAM = "Yanam"
+
+class VEHICLE_STATUS(str, Enum):
+    AVAILABLE= "available"
+    NOT_AVAILABLE="not_available"
+    BOOKED= "booked"
+
+class OTP_TYPE(str, Enum):
+    VERIFICATION= "verification",
+    RESET_PASSWORD="reset_password"
+

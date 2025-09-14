@@ -1,8 +1,8 @@
 from pydantic import Field, BaseModel
-from beanie import Document, PydanticObjectId
+from beanie import  PydanticObjectId
 from datetime import datetime, timezone
 from typing import Optional
-from app.constants.enums import VEHICLE_TYPE, VEHICLE_BRAND, VEHICLE_STATUS
+from app.constants.enums import VEHICLE_TYPE, VEHICLE_BRAND
 
 
 class VehicleDetail(BaseModel):
@@ -22,9 +22,8 @@ class Location(BaseModel):
     state: Optional[str] = Field(None, description="State name")
 
 
-class Vehicle(Document):
+class Vehicle(BaseModel):
     vehicle_spec: VehicleDetail
-    vehicle_status: VEHICLE_STATUS = Field(default=VEHICLE_STATUS.NOT_AVAILABLE)
     location: Location
     owner_id: PydanticObjectId = Field(..., description="ID of the vehicle driver")
     is_available: bool = Field(default=True, description="Quick availability check")
@@ -32,4 +31,3 @@ class Vehicle(Document):
     daily_rate: Optional[float] = Field(None, ge=0, description="Daily rental rate")
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-
