@@ -1,4 +1,3 @@
-
 from app.validationSchemas.auth_validation import RegisterUser
 
 class AuthController:

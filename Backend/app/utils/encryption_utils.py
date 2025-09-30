@@ -2,7 +2,6 @@ import os
 
 from cryptography.fernet import Fernet
 
-
 fernet_secret_key = os.getenv("FERNET_SECRET_KEY")
 
 if not fernet_secret_key:
