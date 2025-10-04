@@ -38,4 +38,8 @@ class InternalServerException(custom_exceptions):
 class ServiceUnavailableException(custom_exceptions):
     status_code = status.HTTP_503_SERVICE_UNAVAILABLE
     detail = "Service unavailable"
+
+class UserAlreadyExistException(custom_exceptions):
+    status_code = status.HTTP_400_BAD_REQUEST
+    detail = "User Already Exist"
     

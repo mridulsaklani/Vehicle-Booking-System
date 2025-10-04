@@ -18,3 +18,9 @@ def decrept_email(encryptEmail: str)->str:
     email = fernet.decrypt(encryptEmail.encode()).decode()
     
     return email
+
+def incrept_data(data: str)-> str:
+    return fernet.encrypt(data.encode().decode())
+
+def decrept_data(data: str)-> str:
+    return fernet.decrypt(data.encode().decode)
