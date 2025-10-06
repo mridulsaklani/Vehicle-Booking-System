@@ -3,6 +3,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 
 from app.models.user_model import User
 from app.models.vehicle_model import Vehicle
+from app.models.otp_model import Otp
 
 
 import os
@@ -17,7 +18,7 @@ async def connect_db():
     
         database = client[DB_NAME]
 
-        await init_beanie(database=database, document_models=[User, Vehicle])
+        await init_beanie(database=database, document_models=[User, Vehicle, Otp])
         print("Database connected successfully!", client.address)
         return client
     except Exception as e:

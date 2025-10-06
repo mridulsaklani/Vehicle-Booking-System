@@ -1,4 +1,4 @@
-from base_repository import BaseRepository
+from app.repositories.base_repository import BaseRepository
 from app.models.user_model import User
 from motor.motor_asyncio import AsyncIOMotorClientSession
 from typing import Optional

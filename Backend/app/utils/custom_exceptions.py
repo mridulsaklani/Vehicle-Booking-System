@@ -1,45 +1,50 @@
 from fastapi import HTTPException, status
 
-class custom_exceptions(HTTPException):
-    def __init__(self, status_code: str = None, detail: str = None):
-        super().__init__(status_code=status_code or self.status_code, detail=detail or self.status_code)
-        self.status_code = status_code
-        self.detail = detail
+class BadRequestException(HTTPException):
+    def __init__(self, detail: str = "Bad request"):
+        super().__init__(status_code=status.HTTP_400_BAD_REQUEST, detail=detail)
 
 
-class BadRequestException(custom_exceptions):
-    status_code = status.HTTP_400_BAD_REQUEST
-    detail = "Bad request"
+class UnauthorizedException(HTTPException):
+    def __init__(self, detail: str = "Unauthorized access"):
+        super().__init__(status_code=status.HTTP_401_UNAUTHORIZED, detail=detail)
 
-class UnauthorizedException(custom_exceptions):
-    status_code = status.HTTP_401_UNAUTHORIZED
-    detail = "Unauthorized access"
 
-class ForbiddenException(custom_exceptions):
-    status_code = status.HTTP_403_FORBIDDEN
-    detail = "Access forbidden"
+class ForbiddenException(HTTPException):
+    def __init__(self, detail: str = "Access forbidden"):
+        super().__init__(status_code=status.HTTP_403_FORBIDDEN, detail=detail)
 
-class NotFoundException(custom_exceptions):
-    status_code = status.HTTP_404_NOT_FOUND
-    detail = "Resource not found"
 
-class ConflictException(custom_exceptions):
-    status_code = status.HTTP_409_CONFLICT
-    detail = "Resource conflict"
+class NotFoundException(HTTPException):
+    def __init__(self, detail: str = "Resource not found"):
+        super().__init__(status_code=status.HTTP_404_NOT_FOUND, detail=detail)
 
-class UnprocessableEntityException(custom_exceptions):
-    status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
-    detail = "Unprocessable entity"
 
-class InternalServerException(custom_exceptions):
-    status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-    detail = "Internal server error"
+class ConflictException(HTTPException):
+    def __init__(self, detail: str = "Resource conflict"):
+        super().__init__(status_code=status.HTTP_409_CONFLICT, detail=detail)
 
-class ServiceUnavailableException(custom_exceptions):
-    status_code = status.HTTP_503_SERVICE_UNAVAILABLE
-    detail = "Service unavailable"
 
-class UserAlreadyExistException(custom_exceptions):
-    status_code = status.HTTP_400_BAD_REQUEST
-    detail = "User Already Exist"
-    
+class UnprocessableEntityException(HTTPException):
+    def __init__(self, detail: str = "Unprocessable entity"):
+        super().__init__(status_code=status.HTTP_422_UNPROCESSABLE_ENTITY, detail=detail)
+
+
+class InternalServerException(HTTPException):
+    def __init__(self, detail: str = "Internal server error"):
+        super().__init__(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail=detail)
+
+
+class ServiceUnavailableException(HTTPException):
+    def __init__(self, detail: str = "Service unavailable"):
+        super().__init__(status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=detail)
+
+
+class UserAlreadyExistException(HTTPException):
+    def __init__(self, detail: str = "User already exists"):
+        super().__init__(status_code=status.HTTP_400_BAD_REQUEST, detail=detail)
+
+
+class FailedOTPSend(HTTPException):
+    def __init__(self, detail: str = "Failed to send OTP"):
+        super().__init__(status_code=status.HTTP_400_BAD_REQUEST, detail=detail)

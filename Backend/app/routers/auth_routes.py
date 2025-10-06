@@ -6,7 +6,7 @@ auth_controller = AuthController()
 
 router = APIRouter()
 
-@router.post('/')
+@router.post('/register')
 async def register(data: RegisterUser):
     result = await auth_controller.register(data)
     return result

@@ -362,5 +362,13 @@ class VEHICLE_STATUS(str, Enum):
 
 class OTP_TYPE(str, Enum):
     VERIFICATION= "verification",
-    RESET_PASSWORD="reset_password"
+    RESET_PASSWORD="reset_password",
+    LOGIN = "login"
+
+class OTP_EXPIRY(int, Enum):
+    TEN_MINUTS = 10,
+    FIFTEEN_MINUTS = 15,
+    THIRTY_MINUTS = 30
+
+
 

@@ -12,6 +12,7 @@ h11==0.16.0
 idna==3.10
 lazy-model==0.3.0
 motor==3.7.1
+passlib==1.7.4
 pycparser==2.23
 pydantic==2.11.7
 pydantic_core==2.33.2
