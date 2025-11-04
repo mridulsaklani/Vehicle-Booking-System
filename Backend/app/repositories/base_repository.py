@@ -22,14 +22,16 @@ class BaseRepository:
         result = await self.model.find_one(filter, session=session)
         return result
     
-    async def get_all(self, skip: int = 0,
-        limit: int = 100,
-        filters: Optional[Dict[str, Any]] = None, session: Optional[AsyncIOMotorClientSession] = None):
-        result =  await self.model.find(filter = {}, session=session)
+    async def get_all(self, page: int = 1, limit: int = 10, filters: Optional[Dict[str, Any]] = None, session: Optional[AsyncIOMotorClientSession] = None):
+        skip = (page - 1) * limit
+        result =  await self.model.find(filters, session=session)
         return result.skip(skip).limit(limit).to_list()
     
     async def update(self, id: PydanticObjectId, data: Dict[str, Any], session: Optional[AsyncIOMotorClientSession] = None):
-        result = await self.model.update_one({"_id": id}, {"$set": data}, session=session)
+        result = await self.model.find_one({"_id": id})
+        if not result:
+            return None
+        await result.set(data, session=session)
         return result
 
 
